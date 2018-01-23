@@ -1,0 +1,45 @@
+{
+  "name": "postcss-grid-span",
+  "version": "1.0.0",
+  "description": "PostCSS plugin to output a column span value when using CSS Grid",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasthesecond/postcss-grid-span.git"
+  },
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "css",
+    "grid"
+  ],
+  "author": "Tom Cunningham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasthesecond/postcss-grid-span/issues"
+  },
+  "homepage": "https://github.com/thomasthesecond/postcss-grid-span",
+  "dependencies": {
+    "postcss": "^6.0.14",
+    "postcss-value-parser": "^3.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^22.1.4"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    },
+    "rules": {
+      "indent": [2, 2],
+      "no-extra-parens": [0],
+      "quotes": [2, "double"]
+    }
+  }
+}
