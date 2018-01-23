@@ -17,7 +17,8 @@ postcss([
   gridSpan({
     columns: 12,
     gap: 30,
-    maxWidth: 1290
+    maxWidth: 1290,
+    appendUnit: true
   })
 ]);
 ```
