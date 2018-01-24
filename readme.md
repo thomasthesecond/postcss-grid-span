@@ -43,7 +43,7 @@ By default, the `span` function outputs a pixel value without the unit. The `px`
 }
 ```
 
-The `span` function can also calculate and output a percentage value on the fly by passing `fluid` as the second option. Note that if a the percentage value is requested, then the `appendUnit` option will have no effect on the output, even if set to `true`.
+The `span` function can also calculate and output a percentage value on the fly by passing `fluid` as the second option. Note that if the percentage value is requested, then the `appendUnit` option will have no effect on the output, even if set to `true`.
 
 #### Input
 
