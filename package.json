@@ -1,6 +1,6 @@
 {
   "name": "postcss-grid-span",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "PostCSS plugin to output a column span value when using CSS Grid",
   "main": "index.js",
   "scripts": {
@@ -37,9 +37,17 @@
       "jest": true
     },
     "rules": {
-      "indent": [2, 2],
-      "no-extra-parens": [0],
-      "quotes": [2, "double"]
+      "indent": [
+        2,
+        2
+      ],
+      "no-extra-parens": [
+        0
+      ],
+      "quotes": [
+        2,
+        "double"
+      ]
     }
   }
 }
