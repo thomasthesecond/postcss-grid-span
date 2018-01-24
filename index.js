@@ -27,6 +27,10 @@ function calculateValue(columnsToSpan, options) {
   return (columnsToSpan * columnWidth) + ((columnsToSpan - 1) * options.gap);
 }
 
+function calculateFluidValue(value, maxWidth) {
+  return (value / maxWidth * 100) + "%";
+}
+
 /**
  * Parses the span value from the stylesheet
  * @param  {string} string  CSS declaration
@@ -34,6 +38,7 @@ function calculateValue(columnsToSpan, options) {
  * @return {string}         Parsed value
  */
 function parseValue(string, options) {
+  var type = "static";
   var parsedValue = parser(string).walk(function (node) {
     if (node.type !== "function" || node.value !== "span") {
       return;
@@ -44,18 +49,31 @@ function parseValue(string, options) {
     }
 
     if (node.nodes.length) {
+      var value;
       var number = parseInt(node.nodes[0].value, 10);
+
+      if (node.nodes[1] && node.nodes[2]) {
+        type = (
+          node.nodes[1].type === "space" &&
+          node.nodes[2].type === "word" &&
+          node.nodes[2].value
+        ) || type;
+      }
 
       if (isNaN(number)) {
         return;
       }
 
+      value = calculateValue(number, options);
+
       node.type = "word";
-      node.value = calculateValue(number, options);
+      node.value = type === "fluid" ?
+        calculateFluidValue(value, options.maxWidth) :
+        value;
     }
   }).toString();
 
-  if (options.appendUnit) {
+  if (options.appendUnit && type === "static") {
     return parsedValue + "px";
   }
 
