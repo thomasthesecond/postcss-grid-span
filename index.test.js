@@ -15,6 +15,14 @@ function run(input, output, options) {
     });
 }
 
+it("outputs a fluid value", () => {
+  var input = "div { width: span(7 fluid); }";
+  var output = "div { width: 57.36434108527132%; }";
+  var options = grid;
+
+  return run(input, output, options);
+});
+
 it("has unit appended to value", () => {
   var input = "div { width: span(7); }";
   var output = "div { width: 740px; }";
